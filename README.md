@@ -61,6 +61,43 @@ plt.show()
 ![image](https://github.com/user-attachments/assets/d933442f-deda-4da1-994d-c594b76c0ed7)
 
 
+# 📄 Download listings dataset of New York from
+https://insideairbnb.com/get-the-data/#:~:text=New%20York%20City-,listings.csv,-Summary%20information%20and
+``` python
+import pandas as pd
+listings = pd.read_csv('/Users/hudasaleh/Downloads/listings.csv')
+```
+![image](https://github.com/user-attachments/assets/24962c28-e026-4def-b294-8770251f102a)
+
+``` python
+listings.columns
+```
+![image](https://github.com/user-attachments/assets/a5793ed6-b614-416b-9d1c-42e649ef614b)
+
+# ✅ The room type and price are provided separately.
+
+##### Let`s Combine and visualize them
+``` python
+import matplotlib.pyplot as plt
+price_by_room = listings.groupby('room_type')['price'].mean()
+print(price_by_room)
+
+# Plot price by room type
+price_by_room.plot(kind='bar', color='cyan')
+plt.title('Average Price by Room Type')
+plt.ylabel('Average Price')
+plt.xlabel('Room Type')
+
+plt.show()
+```
+![image](https://github.com/user-attachments/assets/c5f57425-0646-43f8-86c3-8083165f4d47)
+
+
+
+
+
+
+
 
 
 
