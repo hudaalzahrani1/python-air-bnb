@@ -124,7 +124,38 @@ plt.show()
 ![image](https://github.com/user-attachments/assets/c8a6e207-decd-4d6a-adb9-eb144adfc4b6)
 
 # Let us see the listings on a real map
-* 
+* Hotter Areas (Red/Yellow): High Density: The areas that appear in red or yellow (the "hot" colors) indicate higher density or concentration of listings. This means there are more listings in these areas. Popular Locations: These regions might be more popular or in high demand. It could be near tourist attractions, popular neighborhoods, or central areas in New York where people tend to stay more often. Colder Areas (Green/Blue):
+* Low Density: Areas with blue or green (the "cold" colors) indicate a lower concentration of listings. These regions have fewer listings available. Less Popular Locations: These areas might be less popular or further from key attractions. If you're looking at pricing or other factors, lower density could imply less competition in these regions, which might indicate more affordable areas or less tourist traffic.Density Patterns:
+* Clustered Areas: If you notice clusters of heatmap intensity, they represent hotspots. These might correspond to high-traffic areas like tourist attractions, business districts, or entertainment hubs in New York. Spread-Out Listings: If the heatmap shows a more uniform distribution, it could suggest that listings are more evenly spread across the region, which may reflect a more balanced demand for rentals across different areas of New York.
+```python
+
+import folium
+from folium.plugins import HeatMap
+import pandas as pd
+
+
+NewYork_data = listings[['latitude', 'longitude', 'price']]  # Example, you may add more columns
+
+# Create a base map centered around New York 
+m = folium.Map(location=[40.71072729805865, -74.01045684567059], zoom_start=10)
+
+# Prepare the data for the heatmap
+heat_data = [[row['latitude'], row['longitude']] for index, row in NewYork_data.iterrows()]
+
+# Add the heatmap to the map
+HeatMap(heat_data).add_to(m)
+
+# Save the map as an HTML file to view in a browser
+m.save('NewYork _heatmap.html')
+
+# If you're using Jupyter Notebook, you can display the map directly in the notebook:
+m
+```
+![image](https://github.com/user-attachments/assets/b58696e6-75f8-42ac-9746-177b3e2df0a5)
+
+
+
+
 
 
 
