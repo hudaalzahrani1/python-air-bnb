@@ -92,6 +92,40 @@ plt.show()
 ```
 ![image](https://github.com/user-attachments/assets/c5f57425-0646-43f8-86c3-8083165f4d47)
 
+# ✅ Identify the top 10 neighborhoods with the highest number of listings.
+``` python
+neighborhood_counts = listings['neighbourhood'].value_counts().head(10)
+print("Top 10 Neighborhoods by Listings:")
+print(neighborhood_counts)
+
+# Plot neighborhoods with most listings
+neighborhood_counts.plot(kind='bar', color='lightcoral')
+plt.title('Top 10 Neighborhoods by Listings')
+plt.ylabel('Number of Listings')
+plt.xlabel('Neighborhood')
+plt.xticks(rotation=90)
+plt.show()
+```
+![image](https://github.com/user-attachments/assets/1f9ae16d-6f26-4116-a293-99fb2b47390a)
+
+# ✅ Geographical Distribution of Listings (Price Colored)
+''' python 
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+``` python
+plt.figure(figsize=(10, 6))
+sns.scatterplot(data=listings, x='longitude', y='latitude', hue='price', palette='viridis', size='price', sizes=(10, 200))
+plt.title('Geographical Distribution of Listings (Price Colored)')
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.show()
+```
+![image](https://github.com/user-attachments/assets/c8a6e207-decd-4d6a-adb9-eb144adfc4b6)
+
+# Let us see the listings on a real map
+* 
+
 
 
 
