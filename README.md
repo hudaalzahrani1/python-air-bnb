@@ -18,6 +18,55 @@ calendar.available.value_counts()
 ```
 ![image](https://github.com/user-attachments/assets/a55fbdaf-14f4-4b1b-aa07-a900f4f92ae3)
 
+# Purpose: Compute the percentage of available (t) and unavailable (f) dates.
+
+* Explanation:
+* value_counts(normalize=True) gives proportions.
+* Multiplying by 100 converts the proportions into percentages
+
+```python
+availability_percentage = calendar['available'].value_counts(normalize=True) * 100
+availability_percentage
+```
+![image](https://github.com/user-attachments/assets/0813d6ad-3915-417c-9cb6-bd319e22d2d8)
+
+# Identify the busiest day! 🚩
+##### Hint: We will be counting the most unavailable days (given by f)
+```python
+busiest_dates = calendar[calendar['available'] == 'f']['date'].value_counts()
+print("Busiest Dates:")
+print(busiest_dates.head())
+```
+![image](https://github.com/user-attachments/assets/3ef9cf70-c3e7-4f5e-8c2d-8d8ccc8bda67)
+
+# Create a bar graph to visualize the percentage of room availability.
+```python
+import matplotlib.pyplot as plt
+availability_percentage.plot(kind='bar', color=['green', 'red'])
+plt.title('Availability Percentages')
+plt.ylabel('Percentage')
+plt.xlabel('Available (t/f)')
+plt.show()
+```
+![image](https://github.com/user-attachments/assets/d210d397-cdb6-4e96-b038-006d998ee765)
+
+# Visualize the day with the highest activity.
+``` python
+busiest_dates.head(10).plot(kind='bar', color='orange')
+plt.title('Top 10 Busiest Dates')
+plt.ylabel('Number of Listings Unavailable')
+plt.xlabel('Date')
+plt.show()
+```
+![image](https://github.com/user-attachments/assets/d933442f-deda-4da1-994d-c594b76c0ed7)
+
+
+
+
+
+
+
+
 
 
 
