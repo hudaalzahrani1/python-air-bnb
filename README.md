@@ -153,6 +153,38 @@ m
 ```
 ![image](https://github.com/user-attachments/assets/b58696e6-75f8-42ac-9746-177b3e2df0a5)
 
+# 🚨 How do I find location for my city?
+* Type your city name on google maps
+* Right click
+* The firt button
+![image](https://github.com/user-attachments/assets/de1c29bc-763d-4b9e-b114-e42ef04889c9)
+
+
+# How many listings have a price above $200?
+```python
+listings_above_200 = listings[listings['price'] > 200].shape[0]
+print("Number of listings with a price above $200:", listings_above_200)
+```
+![image](https://github.com/user-attachments/assets/5cb11000-7c88-41c6-9b23-aaf51f5e2290)
+
+# What is the most common room type in Manhattan?
+
+``` python
+most_common_room_type_manhattan = listings[listings['neighbourhood_group'] == 'Manhattan']['room_type'].mode()[0]
+
+print("The most common room type in Manhattan is:", most_common_room_type_manhattan)
+```
+![image](https://github.com/user-attachments/assets/900e0787-77d1-477b-8687-9895bd1a99f8)
+
+
+
+
+
+
+
+
+
+
 
 
 
